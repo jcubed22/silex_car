@@ -40,15 +40,9 @@
             $this->miles = $new_miles;
         }
 
-
         function getMiles()
         {
             return $this->miles;
-        }
-
-        function setPrice($new_price)
-        {
-            $this->price = $new_price;
         }
 
         function getPrice()
@@ -65,6 +59,12 @@
         {
             return $this->photo;
         }
+
+        function searchResults()
+        {
+            if
+        }
+
     }
 
 ?>
