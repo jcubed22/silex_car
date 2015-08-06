@@ -60,10 +60,6 @@
             return $this->photo;
         }
 
-        function searchResults()
-        {
-            if
-        }
 
     }
 

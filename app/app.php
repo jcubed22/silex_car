@@ -32,10 +32,48 @@
             ";
     });
 
-    $search_results->get("/car", function() {
-            
-    })
+    $app->get("/car", function() {
+        $porsche = new Car("2014 Porsche 911", 18000, 70000, "img/porsche.jpg");
+        $stingray = new Car("76 Corvette Stingray", 20000, 40000, "img/mybaby.jpg");
+        $trailblazer = new Car("2006 Chevy Trailblazer", 144000, 12000, "img/trail.jpg");
+        $yugo = new Car("1981 Yugo", 6200, 5, "img/yugo.jpeg");
 
+        $cars = array($porsche, $stingray, $trailblazer, $yugo);
+
+        $car_match = array();
+            foreach ($cars as $car) {
+                if ($car->getPrice() <= $_GET["search_price"] && $car->getMiles() <= $_GET["search_miles"]) {
+                    array_push($car_match, $car);
+                }
+
+
+            }
+
+        $output = "";
+        $output .= "<html>
+                    <head>
+                    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+                    </head>
+                    <body>
+                    <div class='container'>
+                    <h1>Car Dealership</h1>";
+            if (empty($car_match)) {
+                $output .= "<h2>No Matching Result!</h2>";
+            }   else {
+                foreach ($car_match as $car) {
+                    $output .= "<li>" . $car->getCarModel() . "</li>
+                    <ul>
+                        <li><img src=" . $car->getPhoto() ." ></li>
+                        <li> $" . $car->getPrice() . "</li>
+                        <li> " . $car->getMiles() . " miles</li>
+                    </ul>";
+                }
+            }
+
+            $output .= "</div></body></html>";
+
+            return $output;
+    });
 
     return $app;
 ?>
