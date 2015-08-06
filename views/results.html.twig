@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> J&J Auto Crooks</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+<!--First an if statement to determine whether or not any results match.-->
+
+        {% if car_match is empty %}
+            <h1>Sorry, no cars match your search.</h1>
+        {% else %}
+            <h1>Here are the cars that match your search:</h1>
+                <ul>
+                    {% for car in car_match %}
+                        <ul>
+                            <li>{{ car.getCarModel }}</li>
+                                <ul>
+                                    <li><img src="{{ car.getPhoto }}"></li>
+                                    <li>{{ car.getPrice }}</li>
+                                    <li>{{ car.getMiles }}</li>
+                                </ul>
+                        </ul>
+                    {% endfor %}
+                </ul>
+        {% endif %}
+    </div>                
+
+</body>
+</html>
