@@ -12,7 +12,7 @@ Allows user to input two search parameters (maximum price and maximum mileage), 
 
 * Start PHP server in silex_car/web folder.
 
-Seriously, that's it.
+Seriously, that's it.  I mean it.
 
 ## Technologies Used
 
