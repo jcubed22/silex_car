@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <title>J&J Auto Crooks</title>
+</head>
+<body>
+    <div class='container'>
+        <h1>J&J Auto Crooks</h1>
+        <h1>Here are the cars we have.  Take a look!</h1>
+        <p class="lead"><a href='/search'>Or click here to search our inventory.</a></p>
+        <ul>
+            {% for car in cars %}
+            <li>{{ car.getCarModel }}
+                <ul>
+                    <li><img src="{{ car.getPhoto }}"</li>
+                    <li>${{ car.getPrice }}</li>
+                    <li>{{ car.getMiles }} miles</li>
+                </ul>
+            </li><br>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

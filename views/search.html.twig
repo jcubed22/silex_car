@@ -1,25 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
-    <title>J&J Auto Crooks</title>
+    <title>Find A Car</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 </head>
 <body>
-    <div class='container'>
-        <h1>J&J Auto Crooks</h1>
-        <h1>Here are the cars we have.  Take a look!</h1>
-        <ul>
-            {% for car in cars %}
-            <li>{{ car.getCarModel }}
-                <ul>
-                    <li><img src="{{ car.getPhoto }}"</li>
-                    <li>${{ car.getPrice }}</li>
-                    <li>{{ car.getMiles }} miles</li>
-                </ul>
-            </li><br>
-            {% endfor %}
-        </ul>
-        <a href='/car_search'>Click here to search our inventory.</a>        
+    <div class="container">
+        <h1>The car of your dreams is only a click away!</h1>
+        <form action='/results'>
+            <div class='form-group'>
+                <label for='price'>Enter Maximum Price:</label>
+                <input id='price' name='price' class='form-control' type='number'>
+                <label for='miles'>Enter Maximum Miles:</label>
+                <input id='miles' name='miles' class='form-control' type='number'>
+            </div>
+            <button type='submit' class='btn-primary'>Submit</button>
+        </form>
     </div>
 </body>
 </html>

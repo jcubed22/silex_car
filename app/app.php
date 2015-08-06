@@ -15,11 +15,17 @@
 
         $cars = array($porsche, $stingray, $trailblazer, $yugo);
 
-        return $app['twig']->render('search.html.twig', array('cars' => $cars));
+        return $app['twig']->render('inventory.html.twig', array('cars' => $cars));
 
     });
 
-    $app->get("/car_match", function() use ($app) {
+    $app->get('/search', function () use ($app) {
+
+        return $app['twig']->render('search.html.twig');
+
+    });
+
+    $app->get('/results', function() use ($app) {
 
 
         $car_match = array();
